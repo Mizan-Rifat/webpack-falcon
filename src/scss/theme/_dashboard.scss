@@ -1,0 +1,60 @@
+/*-----------------------------------------------
+|   Dashboard
+-----------------------------------------------*/
+.file-thumbnail {
+  height: 2.25rem;
+  width: 2.25rem;
+}
+
+.dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: map_get($spacers, 2);
+}
+
+/*-----------------------------------------------
+|             E-commerce
+-----------------------------------------------*/
+.product-share-doughnut-width {
+  width: 6.825rem;
+}
+
+// .ecommerce-card-min-width{
+//   min-width: 15.9375rem ;
+// }
+/*-----------------------------------------------
+|             Project Management
+-----------------------------------------------*/
+.recent-activity-body-height {
+  height: 25rem;
+}
+
+.table-member-info {
+  min-width: 43rem;
+}
+
+.members-activity {
+  min-height: 22rem;
+}
+
+.table-running-project {
+  min-width: 43rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  Analytics                                 */
+/* -------------------------------------------------------------------------- */
+.ask-analytics {
+  @include media-breakpoint-up(md) {
+    max-height: 426px;
+  }
+
+  .ask-analytics-item {
+    @include hover-focus {
+      background: var(--#{$variable-prefix}100);
+      // background: red;
+    }
+  }
+}

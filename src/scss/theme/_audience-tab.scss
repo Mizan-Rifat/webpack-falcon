@@ -1,0 +1,11 @@
+.chart-tab{
+  .nav-link{
+    &:not(.active):hover{
+      border-color: transparent !important;
+    }
+    &.active{
+      border-bottom: 2px solid $primary;
+      background-color:  var(--#{$variable-prefix}card-bg);
+    }
+  }
+}
