@@ -18,7 +18,7 @@
 |             E-commerce
 -----------------------------------------------*/
 .product-share-doughnut-width {
-  width: 6.825rem;
+  // width: 6.825rem;
 }
 
 // .ecommerce-card-min-width{
@@ -54,7 +54,6 @@
   .ask-analytics-item {
     @include hover-focus {
       background: var(--#{$variable-prefix}100);
-      // background: red;
     }
   }
 }

@@ -1,3 +1,8 @@
+.audience-chart-header{
+  .firefox &{
+    min-height: 96px;
+  }
+}
 .chart-tab{
   .nav-link{
     &:not(.active):hover{

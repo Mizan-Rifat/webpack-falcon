@@ -1,0 +1,32 @@
+mixin CardCalendarManagement
+  .card.overflow-hidden&attributes(attributes)
+    .card-body.p-0
+      .row.g-3
+        .col-md-7
+          +CalendarHeader
+          .calendar-outline#managementAppCalendar.px-3(
+            data-calendar-option!={
+              title: "management-calendar-title",
+              day: "management-calendar-day",
+              events: "management-calendar-events"
+            }
+          )
+        .col-md-5.bg-light.pt-3
+          h4.mb-0.fs-0.fs-sm-1.fs-lg-2.px-3#management-calendar-title
+          p.fs-0.text-500.px-3.mb-0#management-calendar-day
+          ul.list-unstyled.mt-3.scrollbar.px-3.management-calendar-events#management-calendar-events
+      
+
+mixin CalendarHeader
+  .card-header
+    .row.justify-content-between.g-0
+      .col-auto.d-flex.order-md-1
+        button.btn.btn-sm.border.me-2.shadow-sm(type="button" data-event="prev" data-bs-toggle="tooltip" title="Previous")
+          span.fas.fa-chevron-left
+        button.btn.btn-sm.text-secondary.border.px-sm-4.shadow-sm(type="button" data-event="today") Today
+        button.btn.btn-sm.border.ms-2.shadow-sm(type="button" data-event="next" data-bs-toggle="tooltip" title="Next")
+          span.fas.fa-chevron-right
+      .col-auto.order-md-0
+        button.btn.btn-sm.text-primary.border(type="button" data-bs-toggle="modal" data-bs-target="#addEventModal") 
+          span.fas.fa-plus.me-2
+          | New Schedule

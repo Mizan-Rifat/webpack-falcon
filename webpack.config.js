@@ -2,16 +2,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const BeautifyHtmlWebpackPlugin = require('beautify-html-webpack-plugin');
-const { pugFiles, jsFiles } = require('./utils');
+const { pugFiles, jsFiles, flatSitemap } = require('./utils');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackRTLPlugin = require('webpack-rtl-plugin');
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
+
+// const fileName = './src/pug/test.pug';
+const fileName = './src/pug/pages/starter.pug';
+
+console.log(fileName.replace('.pug', '').split('/').slice(3).join('/'));
 
 module.exports = {
   mode: 'development',
   entry: {
     ...jsFiles,
-    theme: ['./src/js/theme/theme.js', './src/scss/theme.scss'],
+    theme: ['./src/js/theme.js', './src/scss/theme.scss'],
     user: './src/scss/user.scss',
   },
   output: {
@@ -19,15 +24,26 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
   },
   plugins: [
-    ...Object.keys(pugFiles).map(file => {
-      return new HtmlWebpackPlugin({
-        template: file,
-        inject: false,
-        filename: file.replace('.pug', '.html').split('/').slice(3).join('/'),
-        data: 'asa',
-        chunks: ['theme', pugFiles[file], 'user'],
-        chunksSortMode: 'manual',
-      });
+    // ...Object.keys(pugFiles).map(file => {
+    //   return new HtmlWebpackPlugin({
+    //     template: file,
+    //     inject: false,
+    //     filename: file.replace('.pug', '.html').split('/').slice(3).join('/'),
+    //     data: file,
+    //     chunks: ['theme', pugFiles[file], 'user'],
+    //     chunksSortMode: 'manual',
+    //   });
+    // }),
+    new HtmlWebpackPlugin({
+      template: fileName,
+      inject: false,
+      // filename: file.replace('.pug', '.html').split('/').slice(3).join('/'),
+      data: {
+        pathName: fileName.replace('.pug', '').split('/').slice(3).join('/'),
+        lll: flatSitemap,
+      },
+      chunks: ['theme', 'user'],
+      // chunksSortMode: 'manual',
     }),
     new BeautifyHtmlWebpackPlugin({
       indent_size: 2,

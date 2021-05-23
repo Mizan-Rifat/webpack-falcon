@@ -1,0 +1,39 @@
+extends ../layouts/LayoutComponent
+include ../mixins/common/ComingSoon
+
+append variables
+  - var CWD = '../'
+  - var pageTree = ['charts','chartjs']  
+
+append scripts
+  script(src=`${CWD}vendors/chart/Chart.min.js`)
+
+
+
+append content
+  +PageHeader('Chart JS')
+    p.mt-2 #{theme} uses chart.js - simple yet flexible JavaScript charting for designers & developers
+    a(href='//chartjs.org/docs/latest/' target='_blank').btn.btn-link.ps-0.btn-sm  Chart documentations
+      span.fas.fa-chevron-right.ml-1.fs--2
+
+  .card.mb-3
+    .card-header
+      h5.mb-0 Javascript
+    .card-body.bg-light   
+      +componentCardLib
+        script(src=`vendors/chart/Chart.min.js`)
+  .row.no-gutters
+    .col-lg-6.pr-0.pr-lg-2
+      .card.mb-3
+        .card-header
+          h5.mb-0 Line Chart
+        .card-body
+          +componentCard
+            canvas.max-w-100.bg-line-chart-gradient.rounded#chart-line(width=1618, height=1000)
+    .col-lg-6.pl-0.pl-lg-2
+      .card.mb-3
+        .card-header
+          h5.mb-0 Bar Chart
+        .card-body.bg-light
+          +componentCard
+            canvas.max-w-100#chart-bar(width=1618, height=1000)
