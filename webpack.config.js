@@ -2,10 +2,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const BeautifyHtmlWebpackPlugin = require('beautify-html-webpack-plugin');
-const { pugFiles, jsFiles, flatSitemap } = require('./utils');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackRTLPlugin = require('webpack-rtl-plugin');
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
+const { jsFiles } = require('./utils');
 
 const file = './src/pug/test.pug';
 
@@ -21,16 +21,6 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
   },
   plugins: [
-    // ...Object.keys(pugFiles).map(file => {
-    //   return new HtmlWebpackPlugin({
-    //     template: file,
-    //     inject: false,
-    //     filename: file.replace('.pug', '.html').split('/').slice(3).join('/'),
-    //     data: file,
-    //     chunks: ['theme', pugFiles[file], 'user'],
-    //     chunksSortMode: 'manual',
-    //   });
-    // }),
     new HtmlWebpackPlugin({
       template: file,
       inject: false,
