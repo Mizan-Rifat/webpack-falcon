@@ -45,7 +45,7 @@ mixin ProductItem(product, index, totalPrice)
   tr(class=(index !== bestProducts.length - 1 ? 'border-bottom border-200' : ''))
     td
       .d-flex.align-items-center.position-relative
-        img(src=`${CWD}assets/img/products/${product.img}.png`, width="60" alt="").rounded-1.border.border-200
+        img(src=require(`${CWD}assets/img/products/${product.img}.png`), width="60" alt="").rounded-1.border.border-200
         .flex-1.ms-3
           h6.mb-1.fw-semi-bold
             a(href="#!").text-dark.stretched-link=product.title

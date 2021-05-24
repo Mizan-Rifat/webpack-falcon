@@ -20,7 +20,7 @@ mixin Invoice
     .card-body
       .row.align-items-center.text-center.mb-3
         .col-sm-6.text-sm-start
-          img(src=`${CWD}assets/img/logos/logo-invoice.png` alt='invoice' width=150)
+          img(src=require(`${CWD}assets/img/logos/logo-invoice.png`) alt='invoice' width=150)
         .col.text-sm-end.mt-3.mt-sm-0
           h2.mb-3 Invoice
           h5 Falcon Design Studio

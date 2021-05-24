@@ -4,7 +4,7 @@ mixin InvitePeople(config)
     .card-body.text-center.py-5
       .row.justify-content-center
         .col-7.col-md-5
-          img.img-fluid(src=`${CWD}assets/img/icons/spot-illustrations/41.png`, alt="" style='width:58%;')
+          img.img-fluid(src=require(`${CWD}assets/img/icons/spot-illustrations/41.png`), alt="" style='width:58%;')
       h3.mt-3.fw-normal.fs-2(class=config.titleClass) Invite a friend, you both get $100
       p.lead.mb-5 Invite your friends and start working together in seconds. 
         if(config.brClass)
@@ -28,7 +28,7 @@ mixin InvitePeople(config)
           .row.gx-2.my-4
             div(class=config.buttonColumn)
               button.btn.btn-falcon-default.d-block.w-100.mb-2(class=config.buttonClass)
-                img(src=`${CWD}assets/img/logos/gmail.png`, width="20" alt="")
+                img(src=require(`${CWD}assets/img/logos/gmail.png`), width="20" alt="")
                 span.fw-medium.ms-2 Invite from Gmail
             div(class=config.buttonColumn)
               button.btn.btn-falcon-default.d-block.w-100.mb-2(data-bs-toggle="modal" data-bs-target="#copyLinkModal" class=config.buttonClass)

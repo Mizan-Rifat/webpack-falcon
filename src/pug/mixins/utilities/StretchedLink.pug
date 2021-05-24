@@ -22,7 +22,7 @@ mixin StretchedLinkExampleDescription
 mixin StretchedLinkExampleDemo
   .card(style='width: 18rem;')
     = '\n'
-    img.card-img-top(src=`${CWD}assets/img/generic/1.jpg`, alt='...')
+    img.card-img-top(src=require(`${CWD}assets/img/generic/1.jpg`), alt='...')
     .card-body
       h5.card-title Card with stretched link
       p.card-text
@@ -68,7 +68,7 @@ mixin StretchedLinkContainingBlockHeader
 
 mixin StretchedLinkContainingBlockDemo
   .card.shadow-lg(style='width: 18rem;')
-    img.card-img-top(src=`${CWD}assets/img/generic/2.jpg`, alt='...')
+    img.card-img-top(src=require(`${CWD}assets/img/generic/2.jpg`), alt='...')
     .card-body
       h6.card-title.fs-3 Card with stretched links
       p.card-text

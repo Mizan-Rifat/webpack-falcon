@@ -1,7 +1,7 @@
 mixin ExperienceList(action)
   .d-flex
     a(href="#!")  
-      img.img-fluid(src=`${CWD}assets/img/logos/g.png`, alt='' width="56")
+      img.img-fluid(src=require(`${CWD}assets/img/logos/g.png`), alt='' width="56")
     .flex-1.position-relative.ps-3
       h6.fs-0.mb-0 Big Data Engineer
         +Verified(true)
@@ -12,7 +12,7 @@ mixin ExperienceList(action)
       .border-dashed-bottom.my-3
   .d-flex
     a(href="#!")  
-      img.img-fluid(src=`${CWD}assets/img/logos/apple.png`, alt='' width="56")
+      img.img-fluid(src=require(`${CWD}assets/img/logos/apple.png`), alt='' width="56")
     .flex-1.position-relative.ps-3
       h6.fs-0.mb-0 Software Engineer
         +Verified(true)
@@ -23,7 +23,7 @@ mixin ExperienceList(action)
       .border-dashed-bottom.my-3
   .d-flex
     a(href="#!")  
-      img.img-fluid(src=`${CWD}assets/img/logos/nike.png`, alt='' width="56")
+      img.img-fluid(src=require(`${CWD}assets/img/logos/nike.png`), alt='' width="56")
     .flex-1.position-relative.ps-3
       h6.fs-0.mb-0 Mobile App Developer
         +Verified(true)

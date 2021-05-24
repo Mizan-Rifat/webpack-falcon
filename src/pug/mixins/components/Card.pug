@@ -10,7 +10,7 @@ mixin CardOverlayDemo(config)
 mixin CardBasicDemo
   .card.overflow-hidden(style='width: 20rem;')
     .card-img-top
-      img.img-fluid(src=`${CWD}assets/img/generic/1.jpg`, alt='Card image cap')
+      img.img-fluid(src=require(`${CWD}assets/img/generic/1.jpg`), alt='Card image cap')
     .card-body
       h5.card-title Card title
       p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
@@ -19,7 +19,7 @@ mixin CardBasicDemo
 mixin CardWithImageDemo
   .card.overflow-hidden(style='width: 20rem;')
     .card-img-top
-      img.img-fluid(src=`${CWD}assets/img/generic/3.jpg`, alt='Card image cap')
+      img.img-fluid(src=require(`${CWD}assets/img/generic/3.jpg`), alt='Card image cap')
     .card-body
       h5.card-title Card title
       p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
@@ -35,7 +35,7 @@ mixin CardGroupDemo
   .card-group
     .card.overflow-hidden
       .card-img-top
-        img.img-fluid(src=`${CWD}assets/img/generic/10.jpg`, alt='Card image cap')
+        img.img-fluid(src=require(`${CWD}assets/img/generic/10.jpg`), alt='Card image cap')
       .card-body
         h5.card-title First card title
         p.card-text
@@ -44,7 +44,7 @@ mixin CardGroupDemo
           small.text-muted Last updated 45 mins ago
     .card.overflow-hidden
       .card-img-top
-        img.img-fluid(src=`${CWD}assets/img/generic/11.jpg`, alt='Card image cap')
+        img.img-fluid(src=require(`${CWD}assets/img/generic/11.jpg`), alt='Card image cap')
       .card-body
         h5.card-title Second card title
         p.card-text This card has supporting text below as a natural lead-in to additional content.
@@ -52,7 +52,7 @@ mixin CardGroupDemo
           small.text-muted Last updated an hour ago
     .card.overflow-hidden
       .card-img-top
-        img.img-fluid(src=`${CWD}assets/img/generic/12.jpg`, alt='Card image cap')
+        img.img-fluid(src=require(`${CWD}assets/img/generic/12.jpg`), alt='Card image cap')
       .card-body
         h5.card-title Yet another card title
         p.card-text
@@ -64,7 +64,7 @@ mixin CardDeckDemo
   .card-deck
     .card.overflow-hidden
       .card-img-top
-        img.img-fluid(src=`${CWD}assets/img/generic/6.jpg`, alt='Card image cap')
+        img.img-fluid(src=require(`${CWD}assets/img/generic/6.jpg`), alt='Card image cap')
       .card-body
         h5.card-title Awesome card title
         p.card-text
@@ -73,7 +73,7 @@ mixin CardDeckDemo
           small.text-muted Last updated 22 mins ago
     .card.overflow-hidden
       .card-img-top
-        img.img-fluid(src=`${CWD}assets/img/generic/7.jpg`, alt='Card image cap')
+        img.img-fluid(src=require(`${CWD}assets/img/generic/7.jpg`), alt='Card image cap')
       .card-body
         h5.card-title Beautiful card title
         p.card-text This card has supporting text below as a natural lead-in to additional content.
@@ -81,7 +81,7 @@ mixin CardDeckDemo
           small.text-muted Last updated 3 hours ago
     .card.overflow-hidden
       .card-img-top
-        img.img-fluid(src=`${CWD}assets/img/generic/8.jpg`, alt='Card image cap')
+        img.img-fluid(src=require(`${CWD}assets/img/generic/8.jpg`), alt='Card image cap')
       .card-body
         h5.card-title Gorgeous card title
         p.card-text

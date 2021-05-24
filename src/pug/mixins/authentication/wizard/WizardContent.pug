@@ -8,7 +8,7 @@ mixin WizardContentProfile(config)
           .dz-preview.dz-preview-single
             .dz-preview-cover.d-flex.align-items-center.justify-content-center.mb-3.mb-md-0
               .avatar.avatar-4xl
-                img.rounded-circle(src=`${CWD}assets/img/team/avatar.png` alt='...' data-dz-thumbnail)
+                img.rounded-circle(src=require(`${CWD}assets/img/team/avatar.png`) alt='...' data-dz-thumbnail)
               .dz-progress
                 span.dz-upload(data-dz-uploadprogress='')
         .col-md

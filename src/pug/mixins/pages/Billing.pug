@@ -36,12 +36,12 @@ mixin BillingPageHeader
 
 mixin BillingDetails
   +Radio({id: 'paypal', parentAttrs: { class: 'mb-0'}, labelAttrs: { class: 'mb-0 d-block'}})(name="billing")
-    img(src=`${CWD}assets/img/icons/icon-paypal-full.png` height=20 alt='')
+    img(src=require(`${CWD}assets/img/icons/icon-paypal-full.png`) height=20 alt='')
   p.fs--1.mb-4 Pay with PayPal, Apple Pay, PayPal Credit and much more
 
   +Radio({id: 'credit-card', parentAttrs: { class: 'mb-0'}, labelAttrs: { class: 'd-flex align-items-center mb-0'}})(checked="checked" name="billing")
     span.fs-1.text-nowrap Credit Card
-    img.d-none.d-sm-inline-block.ms-2.mt-lg-0(src=`${CWD}assets/img/icons/icon-payment-methods.png` height=20 alt='')
+    img.d-none.d-sm-inline-block.ms-2.mt-lg-0(src=require(`${CWD}assets/img/icons/icon-payment-methods.png`) height=20 alt='')
   p.fs--1.mb-4 Safe money transfer using your bank accounts. Visa, maestro, discover, american express.
 
   .row.gx-3.mb-3

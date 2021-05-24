@@ -11,7 +11,7 @@ mixin Banner
               span Change cover photo
           .avatar.avatar-5xl.avatar-profile.shadow-sm.img-thumbnail.rounded-circle
             .h-100.w-100.rounded-circle.overflow-hidden.position-relative 
-              img(src=`${CWD}assets/img/team/2.jpg` width=200 alt='' data-dz-thumbnail)
+              img(src=require(`${CWD}assets/img/team/2.jpg`) width=200 alt='' data-dz-thumbnail)
 
               input#profile-image(type="file").d-none
               label.mb-0(for="profile-image").overlay-icon.d-flex.flex-center

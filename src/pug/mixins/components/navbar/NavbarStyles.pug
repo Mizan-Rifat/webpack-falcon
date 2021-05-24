@@ -1,6 +1,6 @@
 mixin NavbarStyleHeader(config)
   .d-flex.align-items-start
-    img(src=`${CWD}assets/img/generic/${config.img}.png`, alt="" width=100).me-3.border.border-2.rounded-3.bg-200
+    img(src=require(`${CWD}assets/img/generic/${config.img}.png`), alt="" width=100).me-3.border.border-2.rounded-3.bg-200
     .flex-1
       h5.mb-0(data-anchor)=config.title
       p.mb-1!=config.description

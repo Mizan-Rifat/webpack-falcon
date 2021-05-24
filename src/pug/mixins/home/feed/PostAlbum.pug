@@ -18,17 +18,17 @@ mixin PostAlbum
       .row.mx-n1
         .col-6.p-1
           a(href=`${CWD}assets/img/generic/4.jpg` data-gallery="gallery-1")
-            img(src=`${CWD}assets/img/generic/4.jpg` alt='').img-fluid.rounded  
+            img(src=require(`${CWD}assets/img/generic/4.jpg`) alt='').img-fluid.rounded  
         .col-6.p-1
           a(href=`${CWD}assets/img/generic/5.jpg` data-gallery="gallery-1")
-            img(src=`${CWD}assets/img/generic/5.jpg` alt='').img-fluid.rounded   
+            img(src=require(`${CWD}assets/img/generic/5.jpg`) alt='').img-fluid.rounded   
         .col-4.p-1
           a(href=`${CWD}assets/img/gallery/4.jpg` data-gallery="gallery-1")
-            img(src=`${CWD}assets/img/gallery/4.jpg` alt='').img-fluid.rounded   
+            img(src=require(`${CWD}assets/img/gallery/4.jpg`) alt='').img-fluid.rounded   
         .col-4.p-1
           a(href=`${CWD}assets/img/gallery/5.jpg` data-gallery="gallery-1")
-            img(src=`${CWD}assets/img/gallery/5.jpg` alt='').img-fluid.rounded  
+            img(src=require(`${CWD}assets/img/gallery/5.jpg`) alt='').img-fluid.rounded  
         .col-4.p-1
           a(href=`${CWD}assets/img/gallery/3.jpg` data-gallery="gallery-1")
-            img(src=`${CWD}assets/img/gallery/3.jpg` alt='').img-fluid.rounded       
+            img(src=require(`${CWD}assets/img/gallery/3.jpg`) alt='').img-fluid.rounded       
     +PostAction({like: true, comment: true}).bg-light.pt-0

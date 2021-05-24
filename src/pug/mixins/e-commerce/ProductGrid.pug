@@ -19,13 +19,13 @@ mixin ProductGrid(config)
                 each slide in config.slider
                   .swiper-slide
                     a(href=`${CWD}${paths['product-details']}`).d-block
-                      img(src=`${CWD}assets/img/products/${slide}.jpg` alt="").rounded-top.img-fluid
+                      img(src=require(`${CWD}assets/img/products/${slide}.jpg`) alt="").rounded-top.img-fluid
               .swiper-nav
                 .swiper-button-next.swiper-button-white
                 .swiper-button-prev.swiper-button-white
           else
             a(href=`${CWD}${paths['product-details']}`).d-block
-              img(src=`${CWD}assets/img/products/${config.img}.jpg`, alt="").img-fluid.rounded-top
+              img(src=require(`${CWD}assets/img/products/${config.img}.jpg`), alt="").img-fluid.rounded-top
           if(config.new)
             span.badge.rounded-pill.bg-success.position-absolute.mt-2.me-2.z-index-2.top-0.end-0 New
         .p-3  

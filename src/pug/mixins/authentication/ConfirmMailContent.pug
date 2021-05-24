@@ -1,7 +1,7 @@
 mixin ConfirmMailContent(config)
   - var config = Object.assign({layout: 'simple', titleTag: 'h4'}, config)
   div&attributes(attributes)
-    img(src=`${CWD}assets/img/icons/spot-illustrations/16.png` alt='Email' width=100).d-block.mx-auto.mb-4
+    img(src=require(`${CWD}assets/img/icons/spot-illustrations/16.png`) alt='Email' width=100).d-block.mx-auto.mb-4
     #{config.titleTag}(class=config.layout !== 'basic' ? 'mb-2': false) Please check your email!
     p An email has been sent to 
       strong xyz@abc.com

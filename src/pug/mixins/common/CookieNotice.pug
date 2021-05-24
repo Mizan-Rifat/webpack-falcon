@@ -90,7 +90,7 @@ mixin CookieNotice
         .card-body
           .d-flex
             .pe-3
-              img(src=`${CWD}assets/img/icons/cookie-1.png` width='40' alt='cookie')
+              img(src=require(`${CWD}assets/img/icons/cookie-1.png`) width='40' alt='cookie')
             div
               p We use third party cookies to personalize content, ads and  analyze site traffic.
               button.btn.btn-sm.btn-falcon-primary.me-3(type='button' data-bs-dismiss='toast' aria-label='Close') Okay

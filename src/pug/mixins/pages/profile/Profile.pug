@@ -3,7 +3,7 @@ mixin Profile
     .card-header.position-relative.min-vh-25.mb-7
       +Background({image: `${CWD}assets/img/generic/4.jpg`, className: 'rounded-3 rounded-bottom-0'})
       .avatar.avatar-5xl.avatar-profile
-        img(src=`${CWD}assets/img/team/2.jpg` width=200 alt='').rounded-circle.img-thumbnail.shadow-sm
+        img(src=require(`${CWD}assets/img/team/2.jpg`) width=200 alt='').rounded-circle.img-thumbnail.shadow-sm
     .card-body
       .row
         .col-lg-8
@@ -20,15 +20,15 @@ mixin Profile
             .flex-1
               h6.mb-0 See followers (330)
           a.d-flex.align-items-center.mb-2(href='#')
-            img.align-self-center.me-2(src=`${CWD}assets/img/logos/g.png`, alt='Generic placeholder image' width="30")
+            img.align-self-center.me-2(src=require(`${CWD}assets/img/logos/g.png`), alt='Generic placeholder image' width="30")
             .flex-1
               h6.mb-0 Google
           a.d-flex.align-items-center.mb-2(href='#')
-            img.align-self-center.me-2(src=`${CWD}assets/img/logos/apple.png`, alt='Generic placeholder image' width="30")
+            img.align-self-center.me-2(src=require(`${CWD}assets/img/logos/apple.png`), alt='Generic placeholder image' width="30")
             .flex-1
               h6.mb-0 Apple
           a.d-flex.align-items-center.mb-2(href='#')
-            img.align-self-center.me-2(src=`${CWD}assets/img/logos/hp.png`, alt='Generic placeholder image' width="30")
+            img.align-self-center.me-2(src=require(`${CWD}assets/img/logos/hp.png`), alt='Generic placeholder image' width="30")
             .flex-1
               h6.mb-0 Hewlett Packard
 
@@ -57,16 +57,16 @@ mixin ProfileGallery
       .row.g-0
         .col-6.p-1
           a.glightbox(href=`${CWD}assets/img/generic/4.jpg` data-gallery='gallery1' data-glightbox)
-            img(src=`${CWD}assets/img/generic/4.jpg` alt='...').img-fluid.rounded  
+            img(src=require(`${CWD}assets/img/generic/4.jpg`) alt='...').img-fluid.rounded  
         .col-6.p-1
           a.glightbox(href=`${CWD}assets/img/generic/5.jpg` data-gallery='gallery1' data-glightbox)
-            img(src=`${CWD}assets/img/generic/5.jpg` alt='...').img-fluid.rounded  
+            img(src=require(`${CWD}assets/img/generic/5.jpg`) alt='...').img-fluid.rounded  
         .col-4.p-1
           a.glightbox(href=`${CWD}assets/img/gallery/4.jpg` data-gallery='gallery1' data-glightbox)
-            img(src=`${CWD}assets/img/gallery/4.jpg` alt='...').img-fluid.rounded  
+            img(src=require(`${CWD}assets/img/gallery/4.jpg`) alt='...').img-fluid.rounded  
         .col-4.p-1
           a.glightbox(href=`${CWD}assets/img/gallery/5.jpg` data-gallery='gallery1' data-glightbox)
-            img(src=`${CWD}assets/img/gallery/5.jpg` alt='...').img-fluid.rounded  
+            img(src=require(`${CWD}assets/img/gallery/5.jpg`) alt='...').img-fluid.rounded  
         .col-4.p-1
           a.glightbox(href=`${CWD}assets/img/gallery/3.jpg` data-gallery='gallery1' data-glightbox)
-            img(src=`${CWD}assets/img/gallery/3.jpg` alt='...').img-fluid.rounded  
+            img(src=require(`${CWD}assets/img/gallery/3.jpg`) alt='...').img-fluid.rounded  

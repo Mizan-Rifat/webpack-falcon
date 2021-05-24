@@ -3,7 +3,7 @@ include PostAction
 
 mixin PostEvent
   .card&attributes(attributes)
-    img.card-img-top(src=`${CWD}assets/img/generic/13.jpg` alt='')
+    img.card-img-top(src=require(`${CWD}assets/img/generic/13.jpg`) alt='')
     .card-body.overflow-hidden
       .row.justify-content-between.align-items-center
         .col

@@ -33,7 +33,7 @@ mixin CardWeatherUpdate
       .row.g-0.h-100.align-items-center
         .col
           .d-flex.align-items-center
-            img(src=`${CWD}assets/img/icons/weather-icon.png`, alt="" height="60").me-3
+            img(src=require(`${CWD}assets/img/icons/weather-icon.png`), alt="" height="60").me-3
             div
               h6.mb-2 New York City
               .fs--2.fw-semi-bold

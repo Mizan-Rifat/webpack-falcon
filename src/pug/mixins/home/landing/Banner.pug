@@ -18,5 +18,5 @@ mixin Banner
           span.fas.fa-play.ms-2(data-fa-transform="shrink-6 down-1")
       .col-xl-7.offset-xl-1.align-self-end.mt-4.mt-xl-0
         a.img-landing-banner.rounded(href=`${CWD}${paths['default-dashboard']}`)
-          img.img-fluid(src=`${CWD}assets/img/generic/dashboard-alt.jpg` alt='')
+          img.img-fluid(src=require(`${CWD}assets/img/generic/dashboard-alt.jpg`) alt='')
 

@@ -25,7 +25,7 @@ block append content
         input(type="file" name="file")
       .dz-preview.dz-preview-single
         .dz-preview-cover.dz-complete
-          img.dz-preview-img(src=`${CWD}assets/img/generic/image-file-2.png` alt='...' data-dz-thumbnail='')
+          img.dz-preview-img(src=require(`${CWD}assets/img/generic/image-file-2.png`) alt='...' data-dz-thumbnail='')
           a(href="#!" data-dz-remove).dz-remove.text-danger
             span.fas.fa-times
           .dz-progress
@@ -49,7 +49,7 @@ block append content
         | Drop your files here
       .dz-preview.dz-preview-multiple.m-0.d-flex.flex-column
         .d-flex.media.align-items-center.mb-3.pb-3.border-bottom.btn-reveal-trigger
-          img(src=`${CWD}assets/img/generic/image-file-2.png` alt="..." data-dz-thumbnail).dz-image
+          img(src=require(`${CWD}assets/img/generic/image-file-2.png`) alt="..." data-dz-thumbnail).dz-image
           .flex-1.d-flex.flex-between-center
             div
               h6(data-dz-name)

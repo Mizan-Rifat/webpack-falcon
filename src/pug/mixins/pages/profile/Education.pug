@@ -12,7 +12,7 @@ mixin EducationList(action)
       .border-dashed-bottom.my-3
   .d-flex
     a(href="#!")  
-      img.img-fluid(src=`${CWD}assets/img/logos/staten.png`, alt='' width="56")
+      img.img-fluid(src=require(`${CWD}assets/img/logos/staten.png`), alt='' width="56")
     .flex-1.position-relative.ps-3
       h6.fs-0.mb-0 
         a(href="#!") Staten Island Technical High School
@@ -23,7 +23,7 @@ mixin EducationList(action)
       .border-dashed-bottom.my-3
   .d-flex
     a(href="#!")  
-      img.img-fluid(src=`${CWD}assets/img/logos/tj-heigh-school.png`, alt='' width="56")
+      img.img-fluid(src=require(`${CWD}assets/img/logos/tj-heigh-school.png`), alt='' width="56")
     .flex-1.position-relative.ps-3
       h6.fs-0.mb-0 
         a(href="#!") Thomas Jefferson High School for Science and Technology

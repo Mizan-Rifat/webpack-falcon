@@ -15,6 +15,6 @@ mixin PostImage
           +PostCog('post-image-action')
     .card-body.overflow-hidden
       a(href=`${CWD}assets/img/generic/11.jpg` data-gallery="gallery-2")
-        img(src=`${CWD}assets/img/generic/11.jpg` alt='').img-fluid.rounded
+        img(src=require(`${CWD}assets/img/generic/11.jpg`) alt='').img-fluid.rounded
 
     +PostAction.bg-light.pt-0

@@ -12,15 +12,15 @@ mixin PostAction(config)
     .row.g-0.fw-semi-bold.text-center.py-2.fs--1
       .col-auto
         a.rounded-2.d-flex.align-items-center.me-3(href='#!' class=`${config.like ? '' : 'text-700'}`)
-          img(src=`${CWD}assets/img/icons/spot-illustrations/like-${config.like ? 'active': 'inactive'}.png` width=20 alt="")
+          img(src=require(`${CWD}assets/img/icons/spot-illustrations/like-${config.like ? 'active': 'inactive'}.png`) width=20 alt="")
           span.ms-1 Like
       .col-auto
         a.rounded-2.d-flex.align-items-center.me-3(href='#!' class=`${config.comment ? '' : 'text-700'}`)
-          img(src=`${CWD}assets/img/icons/spot-illustrations/comment-${config.comment ? 'active': 'inactive'}.png` width=20 alt="")
+          img(src=require(`${CWD}assets/img/icons/spot-illustrations/comment-${config.comment ? 'active': 'inactive'}.png`) width=20 alt="")
           span.ms-1 Comment
       .col-auto.d-flex.align-items-center
         a.rounded-2.text-700.d-flex.align-items-center(href='#!')
-          img(src=`${CWD}assets/img/icons/spot-illustrations/share-inactive.png` width=20 alt="")
+          img(src=require(`${CWD}assets/img/icons/spot-illustrations/share-inactive.png`) width=20 alt="")
           span.ms-1 Share
     form.d-flex.align-items-center.border-top.border-200.pt-3
       +Avatar({img: 'team/3.jpg', size: 'xl'})

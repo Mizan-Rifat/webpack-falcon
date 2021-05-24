@@ -1,7 +1,7 @@
 mixin LogOutContent(config)
   - var config = Object.assign({layout: 'simple', titleTag: 'h4'}, config)
   div&attributes(attributes)
-    img(src=`${CWD}assets/img/icons/spot-illustrations/45.png` alt='shield' width=100).d-block.mx-auto.mb-4
+    img(src=require(`${CWD}assets/img/icons/spot-illustrations/45.png`) alt='shield' width=100).d-block.mx-auto.mb-4
     
     #{config.titleTag} See you again!
 

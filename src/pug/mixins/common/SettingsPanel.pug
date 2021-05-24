@@ -7,7 +7,7 @@ mixin NavbarStyle(config)
     data-theme-control='navbarStyle'
   )
   label.btn.d-block.w-100.btn-navbar-style.fs--1(for=config.id) 
-    img.img-fluid.img-prototype(src=`${CWD}assets/img/generic/${config.img}.png`, alt="")
+    img.img-fluid.img-prototype(src=require(`${CWD}assets/img/generic/${config.img}.png`), alt="")
     span.label-text 
       +cleanText(config.value)
 
@@ -38,7 +38,7 @@ mixin SettingsPanel
                 )
                 label.btn.d-inline-block.btn-navbar-style.fs--1(for="themeSwitcherLight") 
                   span.hover-overlay.mb-2.rounded.d-block
-                    img.img-fluid.img-prototype.mb-0(src=`${CWD}assets/img/generic/falcon-mode-default.jpg`, alt="")
+                    img.img-fluid.img-prototype.mb-0(src=require(`${CWD}assets/img/generic/falcon-mode-default.jpg`), alt="")
                   span.label-text
                     +cleanText('light')
               .col-6
@@ -51,7 +51,7 @@ mixin SettingsPanel
                 )
                 label.btn.d-inline-block.btn-navbar-style.fs--1(for="themeSwitcherDark") 
                   span.hover-overlay.mb-2.rounded.d-block
-                    img.img-fluid.img-prototype.mb-0(src=`${CWD}assets/img/generic/falcon-mode-dark.jpg`, alt="")
+                    img.img-fluid.img-prototype.mb-0(src=require(`${CWD}assets/img/generic/falcon-mode-dark.jpg`), alt="")
                   span.label-text 
                     +cleanText('dark')
           hr
@@ -151,7 +151,7 @@ mixin SettingsPanel
                 })
 
           .text-center.mt-5
-            img(src=`${CWD}assets/img/icons/spot-illustrations/47.png`, alt="" width=120).mb-4
+            img(src=require(`${CWD}assets/img/icons/spot-illustrations/47.png`), alt="" width=120).mb-4
             h5 Like What You See?
             p.fs--1 Get #{name} now and create beautiful dashboards with hundreds of widgets.
             a(href="https://themes.getbootstrap.com/product/falcon-admin-dashboard-webapp-template/" target="_blank").btn.btn-primary Purchase

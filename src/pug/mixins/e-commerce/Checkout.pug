@@ -62,7 +62,7 @@ mixin PaymentCreditCard
     .col-4.ps-3.text-center.pt-2.d-none.d-sm-block
       .rounded-1.p-2.mt-3.bg-100
         .text-uppercase.fs--2.fw-bold We Accept
-        img(src=`${CWD}assets/img/icons/icon-payment-methods-grid.png`, alt="" width=120)
+        img(src=require(`${CWD}assets/img/icons/icon-payment-methods-grid.png`), alt="" width=120)
 
 
 mixin PaymentPaypal
@@ -71,13 +71,13 @@ mixin PaymentPaypal
     parentAttrs: { class: 'd-flex align-items-center'}, 
     labelAttrs: { class: 'mb-0 ms-2'}
   })(name="payment-method")
-    img(src=`${CWD}assets/img/icons/icon-paypal-full.png` height=20 alt='')
+    img(src=require(`${CWD}assets/img/icons/icon-paypal-full.png`) height=20 alt='')
 
 mixin CheckoutFooter
   .row
     .col-md-7.col-xl-12.col-xxl-7.px-md-3.mb-xxl-0.position-relative
       .d-flex
-        img(src=`${CWD}assets/img/icons/shield.png`, alt="" width="60" height="60").me-3
+        img(src=require(`${CWD}assets/img/icons/shield.png`), alt="" width="60" height="60").me-3
         .flex-1
           h5.mb-2 Buyer Protection
           .form-check.mb-0

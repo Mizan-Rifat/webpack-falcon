@@ -5,7 +5,7 @@ append variables
 mixin AvatarSquareDemo
   .avatar.avatar-4xl&attributes(attributes)
     = '\n'
-    img(src=`${CWD}assets/img/team/2.jpg` alt="")
+    img(src=require(`${CWD}assets/img/team/2.jpg`) alt="")
     = '\n'
 mixin AvatarStatusDemo
   .row.align-items-center&attributes(attributes)

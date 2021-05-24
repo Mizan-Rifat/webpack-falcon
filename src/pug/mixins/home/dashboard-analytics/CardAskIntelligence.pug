@@ -2,7 +2,7 @@ mixin AskIntelligence
   .card&attributes(attributes)
     .card-header
       .d-flex.align-items-center
-        img.me-2(src=`${CWD}assets/img/icons/signal.png` alt="" height='35')
+        img.me-2(src=require(`${CWD}assets/img/icons/signal.png`) alt="" height='35')
         h5.fs-0.fw-normal.text-800.mb-0 Ask Falcon Intelligence
     .card-body.p-0
       .scrollbar-overlay.pt-0.px-card.ask-analytics

@@ -7,7 +7,7 @@ const pugOptions = {
 };
 const jsOptions = {
   nodir: true,
-  ignore: ['./src/js/theme.js', './src/js/utils.js', './src/js/test.js'],
+  ignore: ['./src/js/theme.js', './src/js/utils.js'],
 };
 
 let pugFiles = glob

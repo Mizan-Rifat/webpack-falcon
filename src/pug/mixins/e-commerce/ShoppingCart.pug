@@ -44,7 +44,7 @@ mixin ShoppingCartItem(config)
     .col-8.py-3
       .d-flex.align-items-center
         a(href=`${CWD}${paths['product-details']}`)
-          img(src=`${CWD}assets/img/products/${config.img}.jpg` alt="" width="60").img-fluid.rounded-1.me-3.d-none.d-md-block
+          img(src=require(`${CWD}assets/img/products/${config.img}.jpg`) alt="" width="60").img-fluid.rounded-1.me-3.d-none.d-md-block
         .flex-1
           h5.fs-0
             a.text-900(href=`${CWD}${paths['product-details']}`)=config.title

@@ -7,10 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackRTLPlugin = require('webpack-rtl-plugin');
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 
-// const fileName = './src/pug/test.pug';
-const fileName = './src/pug/pages/starter.pug';
-
-console.log(fileName.replace('.pug', '').split('/').slice(3).join('/'));
+const file = './src/pug/test.pug';
 
 module.exports = {
   mode: 'development',
@@ -35,15 +32,14 @@ module.exports = {
     //   });
     // }),
     new HtmlWebpackPlugin({
-      template: fileName,
+      template: file,
       inject: false,
-      // filename: file.replace('.pug', '.html').split('/').slice(3).join('/'),
+      filename: file.replace('.pug', '.html').split('/').slice(3).join('/'),
       data: {
-        pathName: fileName.replace('.pug', '').split('/').slice(3).join('/'),
-        lll: flatSitemap,
+        pathName: file.replace('.pug', '').split('/').slice(3).join('/'),
       },
-      chunks: ['theme', 'user'],
-      // chunksSortMode: 'manual',
+      chunks: ['theme', 'user', 'test'],
+      chunksSortMode: 'manual',
     }),
     new BeautifyHtmlWebpackPlugin({
       indent_size: 2,
