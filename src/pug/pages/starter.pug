@@ -4,9 +4,12 @@ extends ../layouts/LayoutTheme
 append content
   .card
     .card-body.overflow-hidden.p-lg-6
+      p=pathName
+      p=pageTree
+      p=CWD
       .row.align-items-center
         .col-lg-6
-          img.img-fluid(src=`${CWD}assets/img/icons/spot-illustrations/21.png` alt='' style='width: 75%')
+          img.img-fluid(src=`./assets/img/icons/spot-illustrations/21.png` alt='' style='width: 75%')
         .col-lg-6.ps-lg-4.my-5.text-center.text-lg-start
           h3.text-primary Edit me!
 

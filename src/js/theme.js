@@ -18,6 +18,7 @@ import scrollbarInit from './theme/scrollbar';
 // /* -------------------------------------------------------------------------- */
 // /*                            Theme Initialization                            */
 // /* -------------------------------------------------------------------------- */
+
 docReady(detectorInit);
 docReady(handleNavbarVerticalCollapsed);
 docReady(tooltipInit);

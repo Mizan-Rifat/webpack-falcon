@@ -6,6 +6,7 @@ const { pugFiles, jsFiles, flatSitemap } = require('./utils');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackRTLPlugin = require('webpack-rtl-plugin');
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
+const CopyPlugin = require('copy-webpack-plugin');
 
 // const fileName = './src/pug/test.pug';
 const fileName = './src/pug/pages/starter.pug';
@@ -43,7 +44,7 @@ module.exports = {
         lll: flatSitemap,
       },
       chunks: ['theme', 'user'],
-      // chunksSortMode: 'manual',
+      chunksSortMode: 'manual',
     }),
     new BeautifyHtmlWebpackPlugin({
       indent_size: 2,
@@ -80,6 +81,9 @@ module.exports = {
       filename: 'css/[name]-rtl.min.css',
       minify: true,
     }),
+    new CopyPlugin({
+      patterns: [{ from: 'src/assets', to: 'assets' }],
+    }),
     new CleanWebpackPlugin(),
   ],
   module: {
@@ -89,13 +93,22 @@ module.exports = {
         // include: path.join(__dirname, 'src'),
         use: ['pug-loader'],
       },
-      {
-        test: /\.(png|jpe?g|gif)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: pathData => pathData.filename.replace('src/', ''),
-        },
-      },
+      // {
+      //   test: /\.(png|jpe?g|gif)$/i,
+      //   type: 'asset/resource',
+      //   generator: {
+      //     filename: pathData => pathData.filename.replace('src/', ''),
+      //   },
+      // },
+      // {
+      //   test: /\.(png|jpe?g|gif)$/i,
+      //   loader: 'file-loader',
+      //   options: {
+      //     name: '[path][name].[ext]',
+      //     context: 'src',
+      //     publicPath: '../',
+      //   },
+      // },
       {
         test: /\.(sass|scss)$/,
         use: [
