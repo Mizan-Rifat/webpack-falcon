@@ -11,18 +11,21 @@ const CopyPlugin = require('copy-webpack-plugin');
 // const fileName = './src/pug/test.pug';
 const fileName = './src/pug/pages/starter.pug';
 
-console.log(fileName.replace('.pug', '').split('/').slice(3).join('/'));
+console.log(jsFiles);
 
 module.exports = {
-  mode: 'development',
+  mode: 'none',
+  stats: {
+    modules: false
+  },
   entry: {
     ...jsFiles,
     theme: ['./src/js/theme.js', './src/scss/theme.scss'],
-    user: './src/scss/user.scss',
+    user: './src/scss/user.scss'
   },
   output: {
     filename: 'js/[name].js',
-    path: path.resolve(__dirname, 'public'),
+    path: path.resolve(__dirname, 'public')
   },
   plugins: [
     // ...Object.keys(pugFiles).map(file => {
@@ -41,10 +44,10 @@ module.exports = {
       // filename: file.replace('.pug', '.html').split('/').slice(3).join('/'),
       data: {
         pathName: fileName.replace('.pug', '').split('/').slice(3).join('/'),
-        lll: flatSitemap,
+        lll: flatSitemap
       },
       chunks: ['theme', 'user'],
-      chunksSortMode: 'manual',
+      chunksSortMode: 'manual'
     }),
     new BeautifyHtmlWebpackPlugin({
       indent_size: 2,
@@ -71,27 +74,27 @@ module.exports = {
       comma_first: false,
       operator_position: 'before-newline',
       indent_empty_lines: false,
-      templating: ['auto'],
+      templating: ['auto']
     }),
     new RemoveEmptyScriptsPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].min.css',
+      filename: 'css/[name].min.css'
     }),
     new WebpackRTLPlugin({
       filename: 'css/[name]-rtl.min.css',
-      minify: true,
+      minify: true
     }),
     new CopyPlugin({
-      patterns: [{ from: 'src/assets', to: 'assets' }],
+      patterns: [{ from: 'src/assets', to: 'assets' }]
     }),
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin()
   ],
   module: {
     rules: [
       {
         test: /\.pug$/,
         // include: path.join(__dirname, 'src'),
-        use: ['pug-loader'],
+        use: ['pug-loader']
       },
       // {
       //   test: /\.(png|jpe?g|gif)$/i,
@@ -116,13 +119,13 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              url: false,
-            },
+              url: false
+            }
           },
-          'sass-loader',
-        ],
-      },
-    ],
+          'sass-loader'
+        ]
+      }
+    ]
   },
   optimization: {
     splitChunks: {
@@ -132,15 +135,14 @@ module.exports = {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
           name: module =>
-            'vendors/' +
-            module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1],
-        },
-      },
-    },
+            'vendors/' + module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]
+        }
+      }
+    }
   },
   devServer: {
     open: true,
     port: 8080,
-    contentBase: path.resolve(__dirname, 'public'),
-  },
+    contentBase: path.resolve(__dirname, 'public')
+  }
 };

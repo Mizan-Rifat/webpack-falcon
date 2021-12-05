@@ -15,9 +15,7 @@ const resize = fn => window.addEventListener('resize', fn);
 const isIterableArray = array => Array.isArray(array) && !!array.length;
 
 const camelize = str => {
-  const text = str.replace(/[-_\s.]+(.)?/g, (_, c) =>
-    c ? c.toUpperCase() : ''
-  );
+  const text = str.replace(/[-_\s.]+(.)?/g, (_, c) => (c ? c.toUpperCase() : ''));
   return `${text.substr(0, 1).toLowerCase()}${text.substr(1)}`;
 };
 
@@ -33,25 +31,18 @@ const getData = (el, data) => {
 
 const hexToRgb = hexValue => {
   let hex;
-  hexValue.indexOf('#') === 0
-    ? (hex = hexValue.substring(1))
-    : (hex = hexValue);
+  hexValue.indexOf('#') === 0 ? (hex = hexValue.substring(1)) : (hex = hexValue);
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(
     hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b)
   );
   return result
-    ? [
-        parseInt(result[1], 16),
-        parseInt(result[2], 16),
-        parseInt(result[3], 16),
-      ]
+    ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)]
     : null;
 };
 
-const rgbaColor = (color = '#fff', alpha = 0.5) =>
-  `rgba(${hexToRgb(color)}, ${alpha})`;
+const rgbaColor = (color = '#fff', alpha = 0.5) => `rgba(${hexToRgb(color)}, ${alpha})`;
 
 /* --------------------------------- Colors --------------------------------- */
 
@@ -66,7 +57,7 @@ const getColors = dom => ({
   warning: getColor('warning', dom),
   danger: getColor('danger', dom),
   light: getColor('light', dom),
-  dark: getColor('dark', dom),
+  dark: getColor('dark', dom)
 });
 
 const getSoftColors = dom => ({
@@ -77,7 +68,7 @@ const getSoftColors = dom => ({
   warning: getColor('soft-warning', dom),
   danger: getColor('soft-danger', dom),
   light: getColor('soft-light', dom),
-  dark: getColor('soft-dark', dom),
+  dark: getColor('soft-dark', dom)
 });
 
 const getGrays = dom => ({
@@ -93,7 +84,7 @@ const getGrays = dom => ({
   900: getColor('900', dom),
   1000: getColor('1000', dom),
   1100: getColor('1100', dom),
-  black: getColor('black', dom),
+  black: getColor('black', dom)
 });
 
 const hasClass = (el, className) => {
@@ -101,7 +92,7 @@ const hasClass = (el, className) => {
   return el.classList.value.includes(className);
 };
 
-const addClass = (el, className) => {
+export const addClass = (el, className) => {
   el.classList.add(className);
 };
 
@@ -135,7 +126,7 @@ const isScrolledIntoView = el => {
       top < window.pageYOffset + window.innerHeight &&
       left < window.pageXOffset + window.innerWidth &&
       top + height > window.pageYOffset &&
-      left + width > window.pageXOffset,
+      left + width > window.pageXOffset
   };
 };
 
@@ -145,7 +136,7 @@ const breakpoints = {
   md: 768,
   lg: 992,
   xl: 1200,
-  xxl: 1540,
+  xxl: 1540
 };
 
 const getBreakpoint = el => {
@@ -180,11 +171,11 @@ const getCookie = name => {
 
 const settings = {
   tinymce: {
-    theme: 'oxide',
+    theme: 'oxide'
   },
   chart: {
-    borderColor: 'rgba(255, 255, 255, 0.8)',
-  },
+    borderColor: 'rgba(255, 255, 255, 0.8)'
+  }
 };
 
 /* -------------------------- Chart Initialization -------------------------- */
@@ -204,25 +195,16 @@ const getItemFromStore = (key, defaultValue, store = localStorage) => {
   }
 };
 
-const setItemToStore = (key, payload, store = localStorage) =>
-  store.setItem(key, payload);
+const setItemToStore = (key, payload, store = localStorage) => store.setItem(key, payload);
 const getStoreSpace = (store = localStorage) =>
-  parseFloat(
-    (
-      escape(encodeURIComponent(JSON.stringify(store))).length /
-      (1024 * 1024)
-    ).toFixed(2)
-  );
+  parseFloat((escape(encodeURIComponent(JSON.stringify(store))).length / (1024 * 1024)).toFixed(2));
 
 /* get Dates between */
 
 const getDates = (startDate, endDate, interval = 1000 * 60 * 60 * 24) => {
   const duration = endDate - startDate;
   const steps = duration / interval;
-  return Array.from(
-    { length: steps + 1 },
-    (v, i) => new Date(startDate.valueOf() + interval * i)
-  );
+  return Array.from({ length: steps + 1 }, (v, i) => new Date(startDate.valueOf() + interval * i));
 };
 
 const getPastDates = duration => {
@@ -261,7 +243,7 @@ export {
   camelize,
   getData,
   hasClass,
-  addClass,
+  // addClass,
   hexToRgb,
   rgbaColor,
   getColor,
@@ -280,7 +262,7 @@ export {
   getStoreSpace,
   getDates,
   getPastDates,
-  getRandomNumber,
+  getRandomNumber
 };
 
 // export default utils;
