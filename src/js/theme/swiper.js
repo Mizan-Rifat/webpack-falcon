@@ -1,16 +1,15 @@
-import utils from '../utils';
+import Swiper from 'swiper';
 
 /*-----------------------------------------------
 |  Swiper
 -----------------------------------------------*/
 const swiperInit = () => {
   const swipers = document.querySelectorAll('[data-swiper]');
-  const navbarVerticalToggle = document.querySelector(
-    '.navbar-vertical-toggle'
-  );
+  console.log({ swipers });
+  const navbarVerticalToggle = document.querySelector('.navbar-vertical-toggle');
   swipers.forEach(swiper => {
-    const options = utils.getData(swiper, 'swiper');
-    const thumbsOptions = options.thumb;
+    // const options = utils.getData(swiper, 'swiper');
+    const thumbsOptions = false;
     let thumbsInit;
     if (thumbsOptions) {
       const thumbImages = swiper.querySelectorAll('img');
@@ -34,19 +33,19 @@ const swiperInit = () => {
         swiper.parentNode.appendChild(thumbs);
       }
 
-      thumbsInit = new window.Swiper(thumbs, thumbsOptions);
+      thumbsInit = new Swiper(thumbs, thumbsOptions);
     }
 
     const swiperNav = swiper.querySelector('.swiper-nav');
-    const newSwiper = new window.Swiper(swiper, {
-      ...options,
+    const newSwiper = new Swiper(swiper, {
+      // ...options,
       navigation: {
         nextEl: swiperNav?.querySelector('.swiper-button-next'),
-        prevEl: swiperNav?.querySelector('.swiper-button-prev'),
-      },
-      thumbs: {
-        swiper: thumbsInit,
-      },
+        prevEl: swiperNav?.querySelector('.swiper-button-prev')
+      }
+      // thumbs: {
+      //   swiper: thumbsInit
+      // }
     });
     if (navbarVerticalToggle) {
       navbarVerticalToggle.addEventListener('navbar.vertical.toggle', () => {
@@ -56,4 +55,19 @@ const swiperInit = () => {
   });
 };
 
-export default swiperInit;
+// swiperInit();
+
+console.log('asdfsad');
+
+const docReady = fn => {
+  // see if DOM is already available
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fn);
+  } else {
+    setTimeout(fn, 1);
+  }
+};
+
+docReady(swiperInit);
+
+// export default swiperInit;

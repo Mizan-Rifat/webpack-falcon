@@ -94,11 +94,10 @@ html()&attributes(attrsHtml)
     //- script(src=`${CWD}vendors/is/is.min.js`)
 
     block scripts
+      script(src=`./assets/js/phoenix.js`)
+    //- each tag in htmlWebpackPlugin.files.js
+      //- script(src=tag) 
 
-    each tag in htmlWebpackPlugin.files.js
-      script(src=tag) 
-
-      //- script(src=`${CWD}assets/js/theme.js`)
 
     = '\n'
 

@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------------------- */
 /*                                    Utils                                   */
 /* -------------------------------------------------------------------------- */
-const docReady = fn => {
+export const docReady = fn => {
   // see if DOM is already available
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', fn);
@@ -10,16 +10,16 @@ const docReady = fn => {
   }
 };
 
-const resize = fn => window.addEventListener('resize', fn);
+export const resize = fn => window.addEventListener('resize', fn);
 
-const isIterableArray = array => Array.isArray(array) && !!array.length;
+export const isIterableArray = array => Array.isArray(array) && !!array.length;
 
-const camelize = str => {
+export const camelize = str => {
   const text = str.replace(/[-_\s.]+(.)?/g, (_, c) => (c ? c.toUpperCase() : ''));
   return `${text.substr(0, 1).toLowerCase()}${text.substr(1)}`;
 };
 
-const getData = (el, data) => {
+export const getData = (el, data) => {
   try {
     return JSON.parse(el.dataset[camelize(data)]);
   } catch (e) {
@@ -29,7 +29,7 @@ const getData = (el, data) => {
 
 /* ----------------------------- Colors function ---------------------------- */
 
-const hexToRgb = hexValue => {
+export const hexToRgb = hexValue => {
   let hex;
   hexValue.indexOf('#') === 0 ? (hex = hexValue.substring(1)) : (hex = hexValue);
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
@@ -42,14 +42,14 @@ const hexToRgb = hexValue => {
     : null;
 };
 
-const rgbaColor = (color = '#fff', alpha = 0.5) => `rgba(${hexToRgb(color)}, ${alpha})`;
+export const rgbaColor = (color = '#fff', alpha = 0.5) => `rgba(${hexToRgb(color)}, ${alpha})`;
 
 /* --------------------------------- Colors --------------------------------- */
 
-const getColor = (name, dom = document.documentElement) =>
+export const getColor = (name, dom = document.documentElement) =>
   getComputedStyle(dom).getPropertyValue(`--falcon-${name}`).trim();
 
-const getColors = dom => ({
+export const getColors = dom => ({
   primary: getColor('primary', dom),
   secondary: getColor('secondary', dom),
   success: getColor('success', dom),
@@ -60,7 +60,7 @@ const getColors = dom => ({
   dark: getColor('dark', dom)
 });
 
-const getSoftColors = dom => ({
+export const getSoftColors = dom => ({
   primary: getColor('soft-primary', dom),
   secondary: getColor('soft-secondary', dom),
   success: getColor('soft-success', dom),
@@ -71,7 +71,7 @@ const getSoftColors = dom => ({
   dark: getColor('soft-dark', dom)
 });
 
-const getGrays = dom => ({
+export const getGrays = dom => ({
   white: getColor('white', dom),
   100: getColor('100', dom),
   200: getColor('200', dom),
@@ -87,7 +87,7 @@ const getGrays = dom => ({
   black: getColor('black', dom)
 });
 
-const hasClass = (el, className) => {
+export const hasClass = (el, className) => {
   !el && false;
   return el.classList.value.includes(className);
 };
@@ -96,14 +96,14 @@ export const addClass = (el, className) => {
   el.classList.add(className);
 };
 
-const getOffset = el => {
+export const getOffset = el => {
   const rect = el.getBoundingClientRect();
   const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
 };
 
-const isScrolledIntoView = el => {
+export const isScrolledIntoView = el => {
   let top = el.offsetTop;
   let left = el.offsetLeft;
   const width = el.offsetWidth;
@@ -130,7 +130,7 @@ const isScrolledIntoView = el => {
   };
 };
 
-const breakpoints = {
+export const breakpoints = {
   xs: 0,
   sm: 576,
   md: 768,
@@ -139,7 +139,7 @@ const breakpoints = {
   xxl: 1540
 };
 
-const getBreakpoint = el => {
+export const getBreakpoint = el => {
   const classes = el && el.classList.value;
   let breakpoint;
   if (classes) {
@@ -158,18 +158,18 @@ const getBreakpoint = el => {
 
 /* --------------------------------- Cookie --------------------------------- */
 
-const setCookie = (name, value, expire) => {
+export const setCookie = (name, value, expire) => {
   const expires = new Date();
   expires.setTime(expires.getTime() + expire);
   document.cookie = name + '=' + value + ';expires=' + expires.toUTCString();
 };
 
-const getCookie = name => {
+export const getCookie = name => {
   var keyValue = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
   return keyValue ? keyValue[2] : keyValue;
 };
 
-const settings = {
+export const settings = {
   tinymce: {
     theme: 'oxide'
   },
@@ -180,14 +180,14 @@ const settings = {
 
 /* -------------------------- Chart Initialization -------------------------- */
 
-const newChart = (chart, config) => {
+export const newChart = (chart, config) => {
   const ctx = chart.getContext('2d');
   return new window.Chart(ctx, config);
 };
 
 /* ---------------------------------- Store --------------------------------- */
 
-const getItemFromStore = (key, defaultValue, store = localStorage) => {
+export const getItemFromStore = (key, defaultValue, store = localStorage) => {
   try {
     return JSON.parse(store.getItem(key)) || defaultValue;
   } catch {
@@ -195,19 +195,19 @@ const getItemFromStore = (key, defaultValue, store = localStorage) => {
   }
 };
 
-const setItemToStore = (key, payload, store = localStorage) => store.setItem(key, payload);
-const getStoreSpace = (store = localStorage) =>
+export const setItemToStore = (key, payload, store = localStorage) => store.setItem(key, payload);
+export const getStoreSpace = (store = localStorage) =>
   parseFloat((escape(encodeURIComponent(JSON.stringify(store))).length / (1024 * 1024)).toFixed(2));
 
 /* get Dates between */
 
-const getDates = (startDate, endDate, interval = 1000 * 60 * 60 * 24) => {
+export const getDates = (startDate, endDate, interval = 1000 * 60 * 60 * 24) => {
   const duration = endDate - startDate;
   const steps = duration / interval;
   return Array.from({ length: steps + 1 }, (v, i) => new Date(startDate.valueOf() + interval * i));
 };
 
-const getPastDates = duration => {
+export const getPastDates = duration => {
   let days;
 
   switch (duration) {
@@ -232,37 +232,37 @@ const getPastDates = duration => {
 };
 
 /* Get Random Number */
-const getRandomNumber = (min, max) => {
+export const getRandomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min) + min);
 };
 
-export {
-  docReady,
-  resize,
-  isIterableArray,
-  camelize,
-  getData,
-  hasClass,
-  // addClass,
-  hexToRgb,
-  rgbaColor,
-  getColor,
-  getColors,
-  getSoftColors,
-  getGrays,
-  getOffset,
-  isScrolledIntoView,
-  getBreakpoint,
-  setCookie,
-  getCookie,
-  newChart,
-  settings,
-  getItemFromStore,
-  setItemToStore,
-  getStoreSpace,
-  getDates,
-  getPastDates,
-  getRandomNumber
-};
+// export {
+//   docReady,
+//   resize,
+//   isIterableArray,
+//   camelize,
+//   getData,
+//   hasClass,
+//   // addClass,
+//   hexToRgb,
+//   rgbaColor,
+//   getColor,
+//   getColors,
+//   getSoftColors,
+//   getGrays,
+//   getOffset,
+//   isScrolledIntoView,
+//   getBreakpoint,
+//   setCookie,
+//   getCookie,
+//   newChart,
+//   settings,
+//   getItemFromStore,
+//   setItemToStore,
+//   getStoreSpace,
+//   getDates,
+//   getPastDates,
+//   getRandomNumber
+// };
 
 // export default utils;

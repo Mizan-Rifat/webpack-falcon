@@ -7,25 +7,29 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackRTLPlugin = require('webpack-rtl-plugin');
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 const CopyPlugin = require('copy-webpack-plugin');
-
-// const fileName = './src/pug/test.pug';
+const webpack = require('webpack');
 const fileName = './src/pug/pages/starter.pug';
+// const fileName = './src/pug/test.pug';
 
 console.log(jsFiles);
 
 module.exports = {
-  mode: 'development',
+  mode: 'none',
   stats: {
     modules: false
   },
   entry: {
     // ...jsFiles,
-    theme: ['./src/js/theme1.js', './src/scss/theme.scss'],
+    // theme: ['./src/js/theme.js', './src/scss/theme.scss'],
+    phoenix: ['./src/js/phoenix.js', './src/scss/theme.scss'],
+    flatpickr: './src/js/theme/flatpickr.js',
+    // phoenix: './src/js/phoenix.js',
+    config: './src/js/theme/config.js'
     // user: './src/scss/user.scss',
-    app: './src/js/app.ts'
+    // app: './src/js/app.ts'
   },
   output: {
-    filename: 'js/[name].js',
+    filename: 'assets/js/[name].js',
     path: path.resolve(__dirname, 'public')
   },
   plugins: [
@@ -47,7 +51,7 @@ module.exports = {
         pathName: fileName.replace('.pug', '').split('/').slice(3).join('/'),
         lll: flatSitemap
       },
-      chunks: ['theme', 'user'],
+      chunks: ['phoenix', 'user'],
       chunksSortMode: 'manual'
     }),
     new BeautifyHtmlWebpackPlugin({
@@ -87,6 +91,12 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [{ from: 'src/assets', to: 'assets' }]
+    }),
+    // new webpack.ProvidePlugin({
+    //   process: 'process/browser',
+    // }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development')
     }),
     new CleanWebpackPlugin()
   ],
@@ -134,21 +144,21 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.js', '.json']
   },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-      minSize: 20,
-      cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          name: module =>
-            'vendors/' + module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]
-        }
-      }
-    }
-  },
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: 'all',
+  //     minSize: 20,
+  //     cacheGroups: {
+  //       vendors: {
+  //         test: /[\\/]node_modules[\\/]/,
+  //         name: module =>
+  //           'vendors/' + module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]
+  //       }
+  //     }
+  //   }
+  // },
   devServer: {
     open: true,
     port: 8080,
