@@ -14,14 +14,15 @@ const fileName = './src/pug/pages/starter.pug';
 console.log(jsFiles);
 
 module.exports = {
-  mode: 'none',
+  mode: 'development',
   stats: {
     modules: false
   },
   entry: {
-    ...jsFiles,
-    theme: ['./src/js/theme.js', './src/scss/theme.scss'],
-    user: './src/scss/user.scss'
+    // ...jsFiles,
+    theme: ['./src/js/theme1.js', './src/scss/theme.scss'],
+    // user: './src/scss/user.scss',
+    app: './src/js/app.ts'
   },
   output: {
     filename: 'js/[name].js',
@@ -96,6 +97,11 @@ module.exports = {
         // include: path.join(__dirname, 'src'),
         use: ['pug-loader']
       },
+      {
+        test: /\.ts?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      },
       // {
       //   test: /\.(png|jpe?g|gif)$/i,
       //   type: 'asset/resource',
@@ -126,6 +132,9 @@ module.exports = {
         ]
       }
     ]
+  },
+  resolve: {
+    extensions: ['.ts', '.js']
   },
   optimization: {
     splitChunks: {
