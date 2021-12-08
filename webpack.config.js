@@ -112,6 +112,10 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/
       },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        loader: 'file-loader'
+      },
       // {
       //   test: /\.(png|jpe?g|gif)$/i,
       //   type: 'asset/resource',

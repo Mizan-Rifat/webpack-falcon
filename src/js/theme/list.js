@@ -1,5 +1,5 @@
 import { getData } from '../utils';
-import { List } from 'list.js';
+import List from 'list.js';
 
 /* -------------------------------------------------------------------------- */
 /*                                 Data Table                                 */
@@ -11,19 +11,18 @@ const togglePaginationButtonDisable = (button, disabled) => {
 };
 
 const listInit = () => {
+  console.log({ List });
+  console.log('asdifhh');
   if (List) {
     const lists = document.querySelectorAll('[data-list]');
+    console.log({ lists });
 
     if (lists.length) {
       lists.forEach(el => {
         const options = getData(el, 'list');
 
-        const paginationButtonNext = el.querySelector(
-          '[data-list-pagination="next"]'
-        );
-        const paginationButtonPrev = el.querySelector(
-          '[data-list-pagination="prev"]'
-        );
+        const paginationButtonNext = el.querySelector('[data-list-pagination="next"]');
+        const paginationButtonPrev = el.querySelector('[data-list-pagination="prev"]');
         const viewAll = el.querySelector('[data-list-view="*"]');
         const viewLess = el.querySelector('[data-list-view="less"]');
         const listInfo = el.querySelector('[data-list-info]');
@@ -33,8 +32,7 @@ const listInit = () => {
 
         list.on('updated', function (item) {
           const fallback =
-            el.querySelector('.fallback') ||
-            document.getElementById(options.fallback);
+            el.querySelector('.fallback') || document.getElementById(options.fallback);
 
           if (fallback) {
             if (item.matchingItems.length === 0) {
@@ -60,18 +58,11 @@ const listInit = () => {
           });
 
         const updateListControls = () => {
-          listInfo &&
-            (listInfo.innerHTML = `${list.i} to ${numberOfcurrentItems} of ${totalItem}`);
+          listInfo && (listInfo.innerHTML = `${list.i} to ${numberOfcurrentItems} of ${totalItem}`);
           paginationButtonPrev &&
-            togglePaginationButtonDisable(
-              paginationButtonPrev,
-              pageCount === 1
-            );
+            togglePaginationButtonDisable(paginationButtonPrev, pageCount === 1);
           paginationButtonNext &&
-            togglePaginationButtonDisable(
-              paginationButtonNext,
-              pageCount === pageQuantity
-            );
+            togglePaginationButtonDisable(paginationButtonNext, pageCount === pageQuantity);
 
           if (pageCount > 1 && pageCount < pageQuantity) {
             togglePaginationButtonDisable(paginationButtonNext, false);
@@ -88,8 +79,7 @@ const listInit = () => {
             pageCount = pageCount + 1;
 
             const nextInitialIndex = list.i + itemsPerPage;
-            nextInitialIndex <= list.size() &&
-              list.show(nextInitialIndex, itemsPerPage);
+            nextInitialIndex <= list.size() && list.show(nextInitialIndex, itemsPerPage);
             numberOfcurrentItems += list.visibleItems.length;
             updateListControls();
           });
@@ -100,8 +90,7 @@ const listInit = () => {
             e.preventDefault();
             pageCount = pageCount - 1;
 
-            numberOfcurrentItems =
-              numberOfcurrentItems - list.visibleItems.length;
+            numberOfcurrentItems = numberOfcurrentItems - list.visibleItems.length;
             const prevItem = list.i - itemsPerPage;
             prevItem > 0 && list.show(prevItem, itemsPerPage);
             updateListControls();

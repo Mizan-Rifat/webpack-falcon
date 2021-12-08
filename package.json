@@ -41,6 +41,7 @@
     "webpack-rtl-plugin": "^2.0.0"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "@popperjs/core": "^2.9.2",
     "@types/node": "^16.11.11",
     "anchor-js": "^4.3.1",

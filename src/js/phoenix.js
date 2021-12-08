@@ -12,6 +12,8 @@ import navbarComboInit from './theme/navbar-combo';
 import searchInit from './theme/search';
 import themeControl from './theme/theme-control';
 import dropdownOnHover from './theme/dropdown-on-hover';
+import '@fortawesome/fontawesome-free/js/all.js';
+import listInit from './theme/list';
 // import scrollbarInit from './theme/scrollbar';
 // import 'overlayscrollbars/css/OverlayScrollbars.css';
 
@@ -31,4 +33,6 @@ docReady(navbarComboInit);
 docReady(searchInit);
 docReady(themeControl);
 docReady(dropdownOnHover);
+docReady(listInit);
+
 // docReady(scrollbarInit);

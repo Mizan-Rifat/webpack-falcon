@@ -16,22 +16,92 @@ append content
           p.lead Create Something Beautiful.
           a(href=`${CWD}${paths['getting-started']}`).btn.btn-falcon-primary Getting started
       button.btn.btn-lg.btn-danger(type='button', data-bs-toggle='popover', title='Popover title', data-bs-content="And here's some amazing content. It's very engaging. Right?") Click to toggle popover
-      <a class="btn btn-primary me-1" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Link with href</a><button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">Button with data-bs-target</button>
-      <div class="offcanvas offcanvas-start" id="offcanvasExample" tabindex="-1" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5><button class="btn-close text-reset" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <div>Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.</div>
-          <div class="dropdown mt-3"><button class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" type="button" data-bs-toggle="dropdown">Dropdown button</button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      #tableExample(data-list='{"valueNames":["name","email","age"],"page":5,"pagination":true}')
+        .table-responsive.scrollbar
+          table.table.table-bordered.table-striped.fs--1.mb-0
+            thead.bg-200.text-900
+              tr
+                th.sort(data-sort='name') Name
+                th.sort(data-sort='email') Email
+                th.sort(data-sort='age') Age
+            tbody.list
+              tr
+                td.name Anna
+                td.email anna@example.com
+                td.age 18
+              tr
+                td.name Homer
+                td.email homer@example.com
+                td.age 35
+              tr
+                td.name Oscar
+                td.email oscar@example.com
+                td.age 52
+              tr
+                td.name Emily
+                td.email emily@example.com
+                td.age 30
+              tr
+                td.name Jara
+                td.email jara@example.com
+                td.age 25
+              tr
+                td.name Clark
+                td.email clark@example.com
+                td.age 39
+              tr
+                td.name Jennifer
+                td.email jennifer@example.com
+                td.age 52
+              tr
+                td.name Tony
+                td.email tony@example.com
+                td.age 30
+              tr
+                td.name Tom
+                td.email tom@example.com
+                td.age 25
+              tr
+                td.name Michael
+                td.email michael@example.com
+                td.age 39
+              tr
+                td.name Antony
+                td.email antony@example.com
+                td.age 39
+              tr
+                td.name Raymond
+                td.email raymond@example.com
+                td.age 52
+              tr
+                td.name Marie
+                td.email marie@example.com
+                td.age 30
+              tr
+                td.name Cohen
+                td.email cohen@example.com
+                td.age 25
+              tr
+                td.name Rowen
+                td.email rowen@example.com
+                td.age 39
+        .row.align-items-center.mt-3
+          .pagination.d-none
+          .col
+            p.mb-0.fs--1
+              span.d-none.d-sm-inline-block(data-list-info='data-list-info')
+              span.d-none.d-sm-inline-block  — 
+              a.fw-semi-bold(href='#!', data-list-view='*')
+                | View all
+                span.fas.fa-angle-right.ms-1(data-fa-transform='down-1')
+              a.fw-semi-bold.d-none(href='#!', data-list-view='less')
+                | View Less
+                span.fas.fa-angle-right.ms-1(data-fa-transform='down-1')
+          .col-auto.d-flex
+            button.btn.btn-sm.btn-primary(type='button', data-list-pagination='prev')
+              span Previous
+            button.btn.btn-sm.btn-primary.px-4.ms-2(type='button', data-list-pagination='next')
+              span Next
 
 
 
