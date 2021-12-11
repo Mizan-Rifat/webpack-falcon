@@ -1,0 +1,13 @@
+extends ../layouts/LayoutTheme
+include ../mixins/home/dashboard/Dashboard
+
+
+append variables
+  - var pageTree = ['dashboard','dashboard','index']
+
+prepend scripts
+  script(src=`./assets/js/echarts.js`)
+  script(src=`./assets/js/default.js`)
+
+append content
+  +Dashboard
