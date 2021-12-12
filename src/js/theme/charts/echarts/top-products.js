@@ -1,4 +1,5 @@
 import utils from '../../../utils';
+import * as echarts from 'echarts';
 // import { getPosition, echartSetOption } from './echarts-utils';
 
 /* -------------------------------------------------------------------------- */
