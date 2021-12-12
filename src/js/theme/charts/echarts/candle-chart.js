@@ -1,4 +1,4 @@
-import { getData, getColors, getGrays } from '../../../utils';
+import utils from '../../../utils';
 // import { getPosition, echartSetOption } from "./echarts-utils";
 import * as echarts from 'echarts';
 
@@ -14,7 +14,7 @@ const candleChartInit = () => {
   const $echartsCandleChart = document.querySelector(ECHART_CANDLE_CHART);
 
   if ($echartsCandleChart) {
-    const userOptions = getData($echartsCandleChart, 'options');
+    const userOptions = utils.getData($echartsCandleChart, 'options');
     const chart = echarts.init($echartsCandleChart);
 
     const $echartsZoomIn = document
@@ -24,8 +24,8 @@ const candleChartInit = () => {
       .getElementById($echartsCandleChart.dataset.actionTarget)
       .querySelector(ECHART_ZOOM_OUT);
 
-    let warning = getColors()['warning'];
-    let primary = getColors()['primary'];
+    let warning = utils.getColors()['warning'];
+    let primary = utils.getColors()['primary'];
 
     const splitData = rawData => {
       let categoryData = [];
@@ -101,9 +101,9 @@ const candleChartInit = () => {
         //   type: "cross",
         // },
         padding: [7, 10],
-        backgroundColor: getGrays()['100'],
-        borderColor: getGrays()['300'],
-        textStyle: { color: getColors().dark },
+        backgroundColor: utils.getGrays()['100'],
+        borderColor: utils.getGrays()['300'],
+        textStyle: { color: utils.getColors().dark },
         borderWidth: 1
         // position(pos, params, dom, rect, size) {
         //   return getPosition(pos, params, dom, rect, size);
@@ -120,19 +120,19 @@ const candleChartInit = () => {
         boundaryGap: true,
         axisPointer: {
           lineStyle: {
-            color: getGrays()['300'],
+            color: utils.getGrays()['300'],
             type: 'dashed'
           }
         },
         axisLine: {
           lineStyle: {
-            color: getGrays()['300'],
+            color: utils.getGrays()['300'],
             type: 'solid'
           }
         },
         axisTick: { show: false },
         axisLabel: {
-          color: getGrays()['600'],
+          color: utils.getGrays()['600'],
           formatter: function (value) {
             return new Date(value).toLocaleString('en-US', {
               month: 'short',
@@ -149,14 +149,14 @@ const candleChartInit = () => {
         axisPointer: { show: false },
         splitLine: {
           lineStyle: {
-            color: getGrays()['200'],
+            color: utils.getGrays()['200'],
             type: 'dashed'
           }
         },
         boundaryGap: false,
         axisLabel: {
           show: true,
-          color: getGrays()['600'],
+          color: utils.getGrays()['600'],
           margin: 15,
           fontWeight: 500
         },

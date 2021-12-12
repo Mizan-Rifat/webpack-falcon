@@ -7,7 +7,7 @@ append variables
       chart: 'echart-market-share',
       data:[
         {
-          brand: 'samgsung',
+          brand: 'Samsung',
           color: 'primary',
           percentage: '33'
         },
@@ -17,7 +17,7 @@ append variables
           percentage: '29'
         },
         {
-          brand: 'Huawei',
+          brand: 'Apple',
           color: '300',
           percentage: '20'
         },
@@ -73,9 +73,33 @@ mixin CardTotalOrder
             span.fas.fa-caret-up.me-1
             | 13.6%
         .col-auto.ps-0.mt-n4
-          .echart-line-total-order.h-100
+          .echart-default-total-order(data-echarts!={
+              tooltip:{
+                trigger:'axis',
+                formatter: '{b0} : {c0}',
+              },
+              xAxis:{
+                data: ['Week 4', 'Week 5', 'week 6', 'week 7'],
+              },
+              series: [
+                { 
+                  type: 'line',
+                  data: [20, 40, 100, 120],
+                  smooth:true,
+                  lineStyle: {
+                    width: 3,
+                  },
+                }
+              ],
+            grid:{ 
+                bottom: '2%',
+                top: '2%',
+                right: '10px',
+                left: '10px',
+              }
+            } data-echart-responsive="true")
 
-mixin CardWeeklySales(ammountFontSize='fs-4')
+mixin CardWeeklySales(amountFontSize='fs-4')
   .card.h-md-100.ecommerce-card-min-width
     .card-header.pb-0
       h6.mb-0.mt-2.d-flex.align-items-center Weekly Sales
@@ -84,7 +108,7 @@ mixin CardWeeklySales(ammountFontSize='fs-4')
     .card-body.d-flex.flex-column.justify-content-end
       .row
         .col
-          p.font-sans-serif.lh-1.mb-1(class = `${ammountFontSize}`) $47K
+          p.font-sans-serif.lh-1.mb-1(class = `${amountFontSize}`) $47K
           span.badge.badge-soft-success.rounded-pill.fs--2 +3.5%
         .col-auto.ps-0
           .echart-bar-weekly-sales.h-100&attributes(attributes)

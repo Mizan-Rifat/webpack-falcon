@@ -1,5 +1,5 @@
 import { docReady } from './utils';
-// import 'bootstrap';
+import 'bootstrap';
 import detectorInit from './theme/detector';
 import handleNavbarVerticalCollapsed from './theme/navbar-vertical';
 import tooltipInit from './theme/tooltip';

@@ -236,33 +236,33 @@ export const getRandomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min) + min);
 };
 
-// export {
-//   docReady,
-//   resize,
-//   isIterableArray,
-//   camelize,
-//   getData,
-//   hasClass,
-//   // addClass,
-//   hexToRgb,
-//   rgbaColor,
-//   getColor,
-//   getColors,
-//   getSoftColors,
-//   getGrays,
-//   getOffset,
-//   isScrolledIntoView,
-//   getBreakpoint,
-//   setCookie,
-//   getCookie,
-//   newChart,
-//   settings,
-//   getItemFromStore,
-//   setItemToStore,
-//   getStoreSpace,
-//   getDates,
-//   getPastDates,
-//   getRandomNumber
-// };
+export default {
+  docReady,
+  resize,
+  isIterableArray,
+  camelize,
+  getData,
+  hasClass,
+  addClass,
+  hexToRgb,
+  rgbaColor,
+  getColor,
+  getColors,
+  getSoftColors,
+  getGrays,
+  getOffset,
+  isScrolledIntoView,
+  getBreakpoint,
+  setCookie,
+  getCookie,
+  newChart,
+  settings,
+  getItemFromStore,
+  setItemToStore,
+  getStoreSpace,
+  getDates,
+  getPastDates,
+  getRandomNumber
+};
 
 // export default utils;

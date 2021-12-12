@@ -1,4 +1,4 @@
-import { getData, rgbaColor, getColors, getGrays } from '../../../utils';
+import utils from '../../../utils';
 import * as echarts from 'echarts';
 
 // import { getPosition, echartSetOption } from './echarts-utils';
@@ -33,7 +33,7 @@ const totalSalesInit = () => {
   }
   if ($echartsLineTotalSales) {
     // Get options from data attribute
-    const userOptions = getData($echartsLineTotalSales, 'options');
+    const userOptions = utils.getData($echartsLineTotalSales, 'options');
     const chart = echarts.init($echartsLineTotalSales);
     const monthsnumber = [
       [60, 80, 60, 80, 65, 130, 120, 100, 30, 40, 30, 70],
@@ -50,13 +50,13 @@ const totalSalesInit = () => {
       [20, 40, 20, 50, 30, 80, 120, 100, 30, 40, 30, 70]
     ];
     const getDefaultOptions = () => ({
-      color: getGrays()['100'],
+      color: utils.getGrays()['100'],
       tooltip: {
         trigger: 'axis',
         padding: [7, 10],
-        backgroundColor: getGrays()['100'],
-        borderColor: getGrays()['300'],
-        textStyle: { color: getColors().dark },
+        backgroundColor: utils.getGrays()['100'],
+        borderColor: utils.getGrays()['300'],
+        textStyle: { color: utils.getColors().dark },
         borderWidth: 1,
         formatter(params) {
           return getFormatter(params);
@@ -85,21 +85,21 @@ const totalSalesInit = () => {
         boundaryGap: false,
         axisPointer: {
           lineStyle: {
-            color: getGrays()['300'],
+            color: utils.getGrays()['300'],
             type: 'dashed'
           }
         },
         splitLine: { show: false },
         axisLine: {
           lineStyle: {
-            // color: getGrays()['300'],
-            color: rgbaColor('#000', 0.01),
+            // color: utils.getGrays()['300'],
+            color: utils.rgbaColor('#000', 0.01),
             type: 'dashed'
           }
         },
         axisTick: { show: false },
         axisLabel: {
-          color: getGrays()['400'],
+          color: utils.getGrays()['400'],
           formatter: function (value) {
             var date = new Date(value);
             return `${months[date.getMonth()]} ${date.getDate()}`;
@@ -112,14 +112,14 @@ const totalSalesInit = () => {
         axisPointer: { show: false },
         splitLine: {
           lineStyle: {
-            color: getGrays()['300'],
+            color: utils.getGrays()['300'],
             type: 'dashed'
           }
         },
         boundaryGap: false,
         axisLabel: {
           show: true,
-          color: getGrays()['400'],
+          color: utils.getGrays()['400'],
           margin: 15
         },
         axisTick: { show: false },
@@ -129,9 +129,9 @@ const totalSalesInit = () => {
         {
           type: 'line',
           data: monthsnumber[0],
-          lineStyle: { color: getColors().primary },
+          lineStyle: { color: utils.getColors().primary },
           itemStyle: {
-            borderColor: getColors().primary,
+            borderColor: utils.getColors().primary,
             borderWidth: 2
           },
           symbol: 'circle',
@@ -148,11 +148,11 @@ const totalSalesInit = () => {
               colorStops: [
                 {
                   offset: 0,
-                  color: rgbaColor(getColors().primary, 0.2)
+                  color: utils.rgbaColor(utils.getColors().primary, 0.2)
                 },
                 {
                   offset: 1,
-                  color: rgbaColor(getColors().primary, 0)
+                  color: utils.rgbaColor(utils.getColors().primary, 0)
                 }
               ]
             }

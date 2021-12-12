@@ -40,7 +40,7 @@ module.exports = {
   //   echarts: 'echarts'
   // },
   output: {
-    filename: 'assets/js/[name].js',
+    filename: 'assets/js/webpack/[name].js',
     path: path.resolve(__dirname, 'public')
   },
   plugins: [
@@ -114,8 +114,8 @@ module.exports = {
     // }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
-    }),
-    new CleanWebpackPlugin()
+    })
+    // new CleanWebpackPlugin()
   ],
   module: {
     rules: [
